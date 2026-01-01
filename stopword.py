@@ -1,11 +1,6 @@
-import pandas as pd
+
 import spacy
-# ========================
-# 1. Configuration
-# ========================
-#connexion base SQL
-DATABASE_URI = 'postgresql://root:0000@192.168.1.120:5432/test'
-QUERY = "SELECT mission_clean, profil_clean, title_clean FROM test_schema.portaljob_test LIMIT 1"
+
 #Modèle NLP chargé
 # Modèle spaCy
 try:
@@ -28,10 +23,9 @@ except ImportError:
 custom_stopwords = {
     "serait", "un", "une", "et", "de", "des", "en", "dans", "la", "le", "les", "du", "au", "aux",
     "ou", "car", "donc", "or", "ni", "par", "pour", "sur", "avec", "sans", "trop", "plus", "tres",
-    "très", "cela", "ca", "ça", "ce", "mes", "tes", "ses", "son", "leur", "leurs"
+    "très", "cela", "ca", "ça", "ce", "mes", "tes", "ses", "son", "leur", "leurs","e", "se","trice"
 }
 stop_words.update(custom_stopwords)
 
 stop_words = list(stop_words) 
 
-print(stop_words)

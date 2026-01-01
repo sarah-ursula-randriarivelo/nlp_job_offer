@@ -1,24 +1,7 @@
-import pandas as pd
-from sqlalchemy import create_engine
+# import pandas as pd
+# from sqlalchemy import create_engine
 import re
-# ========================
-# 2. Charger les données
-# ========================
-
-DATABASE_URI = 'postgresql://root:0000@192.168.1.120:5432/test'
-QUERY = "SELECT mission_clean, profil_clean, title_clean FROM test_schema.portaljob_test LIMIT 1"
-
-
-engine = create_engine(DATABASE_URI)
-try:
-    df = pd.read_sql_query(QUERY, engine)
-    print(f"✅ {len(df)} lignes récupérées de la base de données.")
-except Exception as e:
-    raise Exception(f"❌ Erreur lors de la requête SQL : {e}")
-
-# Nettoyage de base
-df.dropna(subset=['title_clean'], inplace=True)
-df = df[df['title_clean'].astype(str).str.len() > 2]
+from database_connection import df
 
 
 # def clean_text_old(text: str) -> str:
@@ -40,8 +23,10 @@ def clean_text(text: str) -> str:
     if not isinstance(text, str):
         return ""
 
-    # 1. Conversion en minuscules
-    text= text.lower()
+    # # 1. Conversion en minuscules
+    # text= text.lower()
+
+    text = re.sub(r'\\n+', '\n', text)
 
     # 2. Remplacer les tirets, underscores, slash par des espaces (pour séparer les mots)
     # mais conserver les termes composés courants en les normalisant d'abord
@@ -68,9 +53,8 @@ def clean_text(text: str) -> str:
 #     print(sum)
 
 if __name__ == "__main__":
-    print("hello")
-    clean = clean_text("     ça vé    SARAH ah!!!")
-    print(clean)
+    clean = clean_text(df.to_string(index=False))
+    # print(clean)
     # add1= addition(1,2)
     # print(add1)
     # # addition(add1,2)
