@@ -32,7 +32,7 @@ def find_optimal_clusters(X, max_k = 50):
         return 2
 
     best_k = k_range [scores.index(max(scores))]
-    print(f"best_cluster: {best_k} score {score}")
+    print(f"best_k = {best_k}, score = {score}")
     return best_k
     
 
