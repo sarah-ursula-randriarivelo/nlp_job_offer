@@ -1,60 +1,56 @@
-# import pandas as pd
-# from sqlalchemy import create_engine
 import re
-from database_connection import df
+from database_connection import df as df_database_connection
+from stopword import stop_words
 
-
-# def clean_text_old(text: str) -> str:
-#     if not isinstance(text, str):
-#         return ""
-#     text = text.lower()
-#     text = re.sub(r"[^a-zàâäéèêëîïôöùûüç\s]", " ", text)  # garder lettres + accents
-#     text = re.sub(r"\s+", " ", text).strip()
-#     return text
 
 def clean_text(text: str) -> str:
     """
-    Nettoie un texte pour préparer le matching avec keyword_mapping.
-    - Convertit en minuscules
-    - Supprime la ponctuation (sauf les accents et espaces)
-    - Normalise les espaces
-    - Préserve les termes composés courants (ex: "data scientist", "ui ux", "supply chain")
+    Clean text to prepare the matching with keyword_mapping.
+        - Convert into lowercase
+        - delete all punctuations (not the accents and spaces)
+        - Normalise spaces
+        - Preserving commonly composed terms like "data scientist", "stagiaire informatique") 
+   
     """
     if not isinstance(text, str):
         return ""
 
-    # # 1. Conversion en minuscules
-    # text= text.lower()
-
+    # 1. Convert text to lowercase
+    text= text.lower()
+    
+    # normalise spaces
     text = re.sub(r'\\n+', '\n', text)
 
-    # 2. Remplacer les tirets, underscores, slash par des espaces (pour séparer les mots)
-    # mais conserver les termes composés courants en les normalisant d'abord
+    # 2. # Replace underscores, slashes with spaces (to separate words)
     text = re.sub(r"[-_/]", " ", text)
 
-    # 3. Supprimer tout ce qui n’est pas une lettre (avec accents), un espace, ou un chiffre (optionnel)
-    # → On garde les chiffres si vous avez des termes comme "bac+2", "caces 3", etc.
+    # 3. # Delete all elements that is not a letter (with accents), a space, or a number
     text = re.sub(r"[^a-zàâäéèêëîïôöùûüç0-9\s]", " ", text)
 
-    # 4. Normaliser les espaces multiples
+    # 4. Normalise multiple spaces
     text = re.sub(r"\s+", " ", text).strip()
 
-    # 5. [OPTION STRATÉGIQUE] Préserver les bigrammes/trigrammes clés en remplaçant l'espace par un tiret bas
-    # Ex: "data scientist" → "data_scientist" pour matcher exactement dans keyword_mapping
-    # → À faire APRÈS le nettoyage, et seulement si votre matching gère les underscores
-    # → Sinon, laissez en espace — mais adaptez votre matching en conséquence.
+    # - replacing unecessary terms like 'telma, galaxy', etc with an empty character
+    text = re.sub(r"(telma|galaxy|diego|tamatave|axian|antananarivo|mahajanga|toamasina|andraharo|zone|futura|shore|andranomena|immeuble|mdg|batiment ariane|batiment|ariane|tana|antsirabe|fianarantsoa|kube|majunga|tolagnaro|er etage|mdg|mdg campus|campus)", '', text)
+
+    # Removing french articles inside titles
+    text = text.split()
+    filtered_word = []
+    for word in text:
+        if word not in stop_words:
+            word = filtered_word.append(word)
+    text = ' '.join(filtered_word)
 
     return text
 
+# apply the cleaning function for each column
+for columns in df_database_connection.select_dtypes('object').columns:
 
-# def addition(a,b) :
-#     sum = a + b
+    df_database_connection[columns] = df_database_connection[columns].apply(clean_text)
 
-#     print(sum)
+df_clean_text = df_database_connection
 
 if __name__ == "__main__":
-    clean = clean_text(df.to_string(index=False))
-    # print(clean)
-    # add1= addition(1,2)
-    # print(add1)
-    # # addition(add1,2)
+
+    print(df_clean_text['title_clean'].to_string(index= False))
+   

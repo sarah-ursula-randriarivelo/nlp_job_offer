@@ -1,8 +1,9 @@
 from vectorizing import X
-from clean_title import df
+from clean_text import df_clean_text
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 
+df = df_clean_text
 
 def find_optimal_clusters(X, max_k = 50):
 
@@ -44,4 +45,6 @@ kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
 
 df['cluster'] = kmeans.fit_predict(X)
 
-# print(df['cluster'])
+df_optimal = df['cluster']
+
+# print(df)
