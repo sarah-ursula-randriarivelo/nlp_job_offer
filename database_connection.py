@@ -10,14 +10,16 @@ QUERY = "SELECT mission_clean, profil_clean, title_clean FROM portaljob ORDER BY
 engine = create_engine(DATABASE_URI)
 
 try:
-    df = pd.read_sql_query(QUERY, engine)
-
     print(f"!!We've got {len(df)} lines retrieved from the database !!") 
 
 except Exception as e:
     raise Exception(f" >>> Error occurs during the SQL query {e}")
 
+pd.set_option('display.max_colwidth', None)
+pd.set_option('display.width', None)
+pd.set_option('display.max_row', None)
+
 if __name__ == "__main__":
 
     
-    print(df['profil_clean'].to_string(index= False))
+    print(df['mission_clean'].to_string(index= False))

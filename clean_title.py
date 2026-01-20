@@ -1,6 +1,6 @@
 import re
 from clean_text import df_clean_text
-from stopword import stop_words
+from Portaljob_code_divided.jupyter_notebook.stopword import stop_words
 
 
 # Keep lines with title length longer than 2

@@ -1,6 +1,6 @@
 import re
-from database_connection import df as df_database_connection
-from stopword import stop_words
+from Portaljob_code_divided.jupyter_notebook.database_connection import df as df_database_connection
+from Portaljob_code_divided.jupyter_notebook.stopword import stop_words
 
 
 def clean_text(text: str) -> str:

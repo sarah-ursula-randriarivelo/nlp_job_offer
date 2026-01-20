@@ -47,4 +47,3 @@ df['cluster'] = kmeans.fit_predict(X)
 
 df_optimal = df['cluster']
 
-# print(df)
