@@ -1,5 +1,5 @@
 from clean_title import df
-from Portaljob_code_divided.jupyter_notebook.stopword import stop_words
+from Portaljob_code_divided.stopword import stop_words
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 

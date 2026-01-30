@@ -1,5 +1,5 @@
-from find_optimal_clusters import n_clusters
-from find_optimal_clusters import df as df_optimal
+from Portaljob_code_divided.find_optimal_clusters import n_clusters
+from Portaljob_code_divided.find_optimal_clusters import df as df_optimal
 from collections import Counter
 from keyword_mapping import keyword_mapping
 from clean_text import df_clean_text
