@@ -5,3 +5,4 @@ __pycache__/
 */pub
 *.pkl
 *.csv
+*.json
