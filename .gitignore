@@ -1,8 +1,5 @@
 # Python
 __pycache__/
-*.pyc
-*.txt
-*/pub
-*.pkl
-*.csv
-*.json
+.txt
+.pub
+.json
