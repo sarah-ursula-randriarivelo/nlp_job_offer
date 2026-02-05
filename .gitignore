@@ -2,4 +2,4 @@
 __pycache__/
 .txt
 .pub
-.json
+analysis_summary.json
