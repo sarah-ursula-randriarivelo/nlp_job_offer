@@ -1,0 +1,148 @@
+{
+  "total_jobs": 1000,
+  "total_categories": 11,
+  "categories": {
+    "Support / Service Client": 739,
+    "Business Intelligence / Data": 78,
+    "Industriel / Technique": 41,
+    "Finance / Comptabilite": 26,
+    "Rh / Management": 25
+  },
+  "top_technical_skills": [
+    {
+      "skill": "sem",
+      "frequency": 173,
+      "percentage": 17.299999999999997
+    },
+    {
+      "skill": "go",
+      "frequency": 133,
+      "percentage": 13.3
+    },
+    {
+      "skill": "audit",
+      "frequency": 47,
+      "percentage": 4.7
+    },
+    {
+      "skill": "budget",
+      "frequency": 43,
+      "percentage": 4.3
+    },
+    {
+      "skill": "tableau",
+      "frequency": 40,
+      "percentage": 4.0
+    },
+    {
+      "skill": "comptabilite",
+      "frequency": 33,
+      "percentage": 3.3000000000000003
+    },
+    {
+      "skill": "seo",
+      "frequency": 30,
+      "percentage": 3.0
+    },
+    {
+      "skill": "vue",
+      "frequency": 24,
+      "percentage": 2.4
+    },
+    {
+      "skill": "excel",
+      "frequency": 24,
+      "percentage": 2.4
+    },
+    {
+      "skill": "tresorerie",
+      "frequency": 17,
+      "percentage": 1.7000000000000002
+    },
+    {
+      "skill": "crm",
+      "frequency": 15,
+      "percentage": 1.5
+    },
+    {
+      "skill": "react",
+      "frequency": 14,
+      "percentage": 1.4000000000000001
+    },
+    {
+      "skill": "linkedin",
+      "frequency": 13,
+      "percentage": 1.3
+    },
+    {
+      "skill": "wordpress",
+      "frequency": 12,
+      "percentage": 1.2
+    },
+    {
+      "skill": "erp",
+      "frequency": 12,
+      "percentage": 1.2
+    }
+  ],
+  "top_soft_skills": [
+    {
+      "skill": "analyse",
+      "frequency": 184,
+      "percentage": 18.4
+    },
+    {
+      "skill": "communication",
+      "frequency": 108,
+      "percentage": 10.8
+    },
+    {
+      "skill": "organisation",
+      "frequency": 79,
+      "percentage": 7.9
+    },
+    {
+      "skill": "travail equipe",
+      "frequency": 20,
+      "percentage": 2.0
+    },
+    {
+      "skill": "negociation",
+      "frequency": 18,
+      "percentage": 1.7999999999999998
+    },
+    {
+      "skill": "motivation",
+      "frequency": 10,
+      "percentage": 1.0
+    },
+    {
+      "skill": "leadership",
+      "frequency": 9,
+      "percentage": 0.8999999999999999
+    },
+    {
+      "skill": "rigueur",
+      "frequency": 7,
+      "percentage": 0.7000000000000001
+    },
+    {
+      "skill": "autonomie",
+      "frequency": 7,
+      "percentage": 0.7000000000000001
+    },
+    {
+      "skill": "relationnel",
+      "frequency": 6,
+      "percentage": 0.6
+    }
+  ],
+  "education_distribution": {
+    "Baccalauréat": 31,
+    "MBA": 21,
+    "Ingénieur": 7,
+    "Master": 6,
+    "Licence": 3
+  },
+  "avg_technical_skills_per_job": 0.695
+}
